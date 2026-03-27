@@ -5,9 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#ffffff">
-    <meta name="description"
-        content="Official Portfolio of Humayoun Kobir. Diploma Engineer in Computer Science, Graphic Designer, and Specialist in Data & 3D Modeling.">
-    <title>Humayoun Kobir | Portfolio</title>
+    <link rel="canonical" href="https://humayounkobir.github.io/">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Humayoun Kobir">
+    
+    <!-- Primary SEO -->
+    <title>Humayoun Kobir | Professional Engineer & Graphic Designer Portfolio</title>
+    <meta name="title" content="Humayoun Kobir | Professional Engineer & Graphic Designer Portfolio">
+    <meta name="description" content="Official Portfolio of Humayoun Kobir. Specialized Diploma Engineer in Computer Science, Graphic Designer, and expert in 3D Modeling, Blender, and Data Engineering.">
+    <meta name="keywords" content="Humayoun Kobir, Humayun Kobir, Diploma Engineer Bangladesh, Computer Science Engineer, Graphic Designer Portfolio, 3D Modeler Bangladesh, Blender Artist, Excel Data Specialist, Upwork Freelancer, Tech Portfolio">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://humayounkobir.github.io/">
+    <meta property="og:title" content="Humayoun Kobir | Engineer & Creative Designer">
+    <meta property="og:description" content="Explore the professional work of Humayoun Kobir: Engineering solutions, 3D Visualizer, and Graphic Design.">
+    <meta property="og:image" content="https://i.postimg.cc/NjZ9R8Z4/refined.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://humayounkobir.github.io/">
+    <meta property="twitter:title" content="Humayoun Kobir | Professional Portfolio">
+    <meta property="twitter:description" content="Diploma Engineer and Specialist in Visual Design & Data Optimization.">
+    <meta property="twitter:image" content="https://i.postimg.cc/NjZ9R8Z4/refined.png">
+
+    <!-- Master JSON-LD Schema (Google Knowledge Graph) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://humayounkobir.github.io/#person",
+          "name": "Humayoun Kobir",
+          "jobTitle": "Diploma Engineer & Graphic Designer",
+          "description": "Specialized in Computer Science, 3D Modeling, and Visual Design.",
+          "image": "https://i.postimg.cc/NjZ9R8Z4/refined.png",
+          "sameAs": [
+            "https://github.com/humayunk45423",
+            "https://www.linkedin.com/in/humayounkobirkiron/",
+            "https://www.behance.net/humayounkobir",
+            "https://www.upwork.com/freelancers/~019f94538da41f401d"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://humayounkobir.github.io/#website",
+          "url": "https://humayounkobir.github.io/",
+          "name": "Humayoun Kobir Portfolio",
+          "publisher": {"@id": "https://humayounkobir.github.io/#person"}
+        }
+      ]
+    }
+    </script>
 
     <link rel="icon" type="image/png" href="https://i.postimg.cc/PJhCYJzg/Artboard_1logo_border_radious.png">
 
@@ -99,34 +149,46 @@
             pointer-events: none
         }
 
-        #bgCanvas {
-            position: fixed;
-            inset: 0;
+        body:before {
+            inset: -18%;
             z-index: -4;
-            pointer-events: none;
-            background: var(--bg);
-            transition: background 0.4s ease;
-            contain: strict;
+            background: radial-gradient(circle at var(--px) var(--py), var(--l1), transparent 24%), radial-gradient(circle at calc(var(--px) + 18%) calc(var(--py) + 7%), var(--l2), transparent 22%), radial-gradient(circle at 76% 18%, var(--l3), transparent 28%);
+            filter: blur(40px);
+            animation: drift 30s ease-in-out infinite alternate;
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
+            opacity: 0.8
         }
 
-        .grid-mask {
-            position: fixed;
+        @media (max-width: 1024px) {
+
+            :root,
+            html[data-theme=dark] {
+                --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                --shadow2: 0 2px 8px rgba(0, 0, 0, 0.06);
+            }
+
+            body:before,
+            body:after,
+            .bg {
+                display: none !important;
+                content: none;
+                animation: none !important;
+            }
+
+            body {
+                background: var(--bg) !important;
+                background-attachment: scroll !important;
+            }
+        }
+
+        body:after {
             inset: 0;
             z-index: -3;
-            pointer-events: none;
             background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
             background-size: 72px 72px;
             mask-image: linear-gradient(180deg, rgba(0, 0, 0, .3), transparent 88%);
             -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, .3), transparent 88%);
-        }
-
-        @media (max-width: 1024px) {
-            #bgCanvas, .grid-mask {
-                display: none !important;
-            }
-            body {
-                background: var(--bg) !important;
-            }
         }
 
         @media (max-width: 1024px) {
@@ -366,7 +428,6 @@
             scroll-margin-top: 4.5rem;
             content-visibility: auto;
             contain-intrinsic-size: 0 500px;
-            contain: layout style;
         }
 
         .split-section {
@@ -614,8 +675,7 @@
             background: var(--surface);
             border: 1px solid var(--line);
             border-radius: 2rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            contain: content;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1)
         }
 
         .service-card:hover {
@@ -682,8 +742,7 @@
             border: 1px solid var(--line);
             border-radius: 2rem;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            contain: content;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1)
         }
 
         .project-card:hover {
@@ -887,7 +946,7 @@
 
         .reveal.active {
             opacity: 1;
-            transform: translate3d(0, 0, 0);
+            transform: translateY(0)
         }
 
         @media (max-width: 1024px) {
@@ -1162,8 +1221,12 @@
 </head>
 
 <body>
-    <canvas id="bgCanvas" aria-hidden="true"></canvas>
-    <div class="grid-mask" aria-hidden="true"></div>
+    <div class="bg" aria-hidden="true">
+        <div class="orb o1"></div>
+        <div class="orb o2"></div>
+        <div class="orb o3"></div>
+        <div class="pointer" id="pointerGlow"></div>
+    </div>
 
     <div class="shell" id="top">
         <header class="header">
@@ -1179,9 +1242,9 @@
                     </span>
                 </a>
                 <nav class="nav" aria-label="Primary navigation">
-                    <a href="#services">Services</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#services" title="Explore My Services">Services</a>
+                    <a href="#projects" title="View Selected Works">Projects</a>
+                    <a href="#contact" title="Get in Touch">Contact</a>
                 </nav>
                 <button class="toggle" id="themeToggle" type="button" aria-label="Switch color theme">
                     <i class="fa-solid fa-moon" id="themeIcon"></i>
@@ -1244,7 +1307,7 @@
 
             <section class="section split-section" id="services">
                 <div class="container">
-                    <h2 class="section-title reveal">Services</h2>
+                    <h2 class="section-title reveal">My Expertise</h2>
                     <div class="services-grid">
                         <article class="service-card reveal">
                             <div class="service-icon"><i class="fa-solid fa-pen-ruler"></i></div>
@@ -1319,7 +1382,7 @@
 
             <section class="section split-section" id="projects">
                 <div class="container">
-                    <h2 class="section-title reveal">Projects</h2>
+                    <h2 class="section-title reveal">Selected Work</h2>
                     <div class="projects-grid">
                         <article class="project-card reveal">
                             <div class="project-content">
@@ -1579,8 +1642,6 @@
             let typingSpeed = 100;
 
             const type = () => {
-                if (!state.isTypingVisible) return;
-                
                 const currentWord = words[wordIndex];
                 const shouldDelete = isDeleting;
                 const currentSlice = currentWord.substring(0, charIndex);
@@ -1603,13 +1664,7 @@
             };
 
             if (typingElement) {
-                const typeObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        state.isTypingVisible = entry.isIntersecting;
-                        if (entry.isIntersecting) type();
-                    });
-                }, { threshold: 0.1 });
-                typeObserver.observe(typingElement);
+                setTimeout(type, 1000);
             }
 
             // 3. Scroll Reveal Animation
@@ -1629,9 +1684,8 @@
 
             document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-            // 4. Ultimate Canvas Graphics Engine (The absolute performance limit)
-            const canvas = document.getElementById('bgCanvas');
-            const ctx = canvas.getContext('2d', { alpha: false });
+            // 4. Pointer Glow & Scroll Effects (PC Optimized)
+            const pointerGlow = document.getElementById('pointerGlow');
             const stickyHeads = document.querySelectorAll('.split-section .section-title');
 
             const state = {
@@ -1641,128 +1695,68 @@
                 targetY: window.innerHeight * 0.18,
                 isMoving: false,
                 isHovering: false,
-                animating: false,
-                isTypingVisible: false,
-                w: 0,
-                h: 0,
-                time: 0,
-                scrollY: 0,
-                titlePositions: []
+                animating: false
             };
 
-            const computePositions = () => {
-                const sy = window.scrollY || window.pageYOffset;
-                state.titlePositions = Array.from(stickyHeads).map(head => {
-                    const rect = head.getBoundingClientRect();
-                    return {
-                        el: head,
-                        top: rect.top + sy,
-                        height: rect.height
-                    };
-                });
-            };
+            const updateLoop = () => {
+                let needsUpdate = false;
 
-            const resize = () => {
-                state.w = canvas.width = window.innerWidth;
-                state.h = canvas.height = window.innerHeight;
-                computePositions();
-                if (!state.animating) render();
-            };
-
-            const getColors = () => {
-                const isDark = root.getAttribute('data-theme') === 'dark';
-                return isDark ? {
-                    l1: 'rgba(184, 97, 34, 0.16)',
-                    l2: 'rgba(22, 88, 68, 0.14)',
-                    l3: 'rgba(255, 255, 255, 0.04)',
-                    bg: '#0b0b0b'
-                } : {
-                    l1: 'rgba(22, 88, 68, 0.12)',
-                    l2: 'rgba(184, 97, 34, 0.14)',
-                    l3: 'rgba(22, 88, 68, 0.06)',
-                    bg: '#ffffff'
-                };
-            };
-
-            const render = () => {
-                const colors = getColors();
-                ctx.fillStyle = colors.bg;
-                ctx.fillRect(0, 0, state.w, state.h);
-
-                state.time += 0.005;
-                const driftX = Math.sin(state.time) * 30;
-                const driftY = Math.cos(state.time) * 30;
-
-                // 1. Static Orbs with Drift
-                const orbs = [
-                    { x: state.w * 0.1 + driftX, y: state.h * 0.2 + driftY, r: state.w * 0.35, c: colors.l1 },
-                    { x: state.w * 0.8 - driftX, y: state.h * 0.7 + driftY, r: state.w * 0.3, c: colors.l2 },
-                    { x: state.w * 0.7 + driftX, y: state.h * 0.2 - driftY, r: state.w * 0.25, c: colors.l3 }
-                ];
-
-                orbs.forEach(orb => {
-                    const g = ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, orb.r);
-                    g.addColorStop(0, orb.c);
-                    g.addColorStop(1, 'transparent');
-                    ctx.fillStyle = g;
-                    ctx.fillRect(0, 0, state.w, state.h);
-                });
-
-                // 2. Interactive Pointer Glow
-                if (state.isHovering) {
+                // 1. Pointer Logic
+                if (window.innerWidth >= 1024) {
                     const dx = state.targetX - state.x;
                     const dy = state.targetY - state.y;
-                    state.x += dx * 0.12;
-                    state.y += dy * 0.12;
 
-                    const g = ctx.createRadialGradient(state.x, state.y, 0, state.x, state.y, 350);
-                    g.addColorStop(0, colors.l1.replace('0.1', '0.22'));
-                    g.addColorStop(1, 'transparent');
-                    ctx.fillStyle = g;
-                    ctx.fillRect(0, 0, state.w, state.h);
+                    if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+                        state.x += dx * 0.12;
+                        state.y += dy * 0.12;
+
+                        const px = (state.x / window.innerWidth) * 100;
+                        const py = (state.y / window.innerHeight) * 100;
+
+                        // Direct style updates for performance peaks
+                        document.body.style.setProperty('--px', `${px}%`);
+                        document.body.style.setProperty('--py', `${py}%`);
+
+                        if (pointerGlow) {
+                            pointerGlow.style.transform = `translate3d(${state.x - 192}px, ${state.y - 192}px, 0)`;
+                            pointerGlow.style.opacity = state.isHovering ? "0.8" : "0.5";
+                        }
+                        needsUpdate = true;
+                    }
                 }
 
-                // 3. Zero-Layout Scroll Logic (The Peak)
-                const isPC = window.innerWidth >= 1024;
-                if (isPC) {
-                    const sy = state.scrollY;
-                    state.titlePositions.forEach(pos => {
-                        const relativeTop = pos.top - sy;
-                        if (relativeTop < 250 && relativeTop > -100) {
-                            if (relativeTop < 150 && relativeTop > 0) {
-                                const opacity = Math.max(0, (relativeTop - 80) / 70);
-                                if (pos.el.style.opacity !== opacity.toString()) pos.el.style.opacity = opacity.toString();
-                            } else if (relativeTop <= 0) {
-                                if (pos.el.style.opacity !== "0") pos.el.style.opacity = "0";
+                // 2. Scroll Title Fade Logic (Only when scrolling or near thresholds)
+                if (window.innerWidth >= 1024) {
+                    stickyHeads.forEach(head => {
+                        const rect = head.getBoundingClientRect();
+                        if (rect.top < 250 && rect.bottom > -50) {
+                            if (rect.top < 150 && rect.top > 0) {
+                                const opacity = Math.max(0, (rect.top - 80) / 70);
+                                head.style.opacity = opacity.toString();
+                            } else if (rect.top <= 0) {
+                                head.style.opacity = "0";
                             } else {
-                                if (pos.el.style.opacity !== "1") pos.el.style.opacity = "1";
-                            }
-                        } else {
-                            // If far from fade zone, keep visible (respecting reveal logic)
-                            if (pos.el.style.opacity !== "" && relativeTop >= 250) {
-                                pos.el.style.opacity = ""; 
+                                head.style.opacity = "1";
                             }
                         }
                     });
                 }
 
-                if (state.animating) {
-                    requestAnimationFrame(render);
+                if (needsUpdate || state.isMoving) {
+                    requestAnimationFrame(updateLoop);
+                    state.animating = true;
+                } else {
+                    state.animating = false;
                 }
             };
 
             const startLoop = () => {
                 if (!state.animating) {
                     state.animating = true;
-                    requestAnimationFrame(render);
+                    requestAnimationFrame(updateLoop);
                 }
             };
 
-            const stopLoop = () => {
-                state.animating = false;
-            };
-
-            window.addEventListener('resize', resize);
             window.addEventListener('pointermove', (e) => {
                 if (window.innerWidth < 1024) return;
                 state.targetX = e.clientX;
@@ -1770,27 +1764,24 @@
                 state.isHovering = true;
                 state.isMoving = true;
                 startLoop();
-                
+
+                // Stop move flag after a short delay
                 clearTimeout(state.moveTimeout);
-                state.moveTimeout = setTimeout(() => { 
-                    state.isMoving = false; 
-                    if (!window.scrollY) stopLoop(); 
-                }, 2000);
+                state.moveTimeout = setTimeout(() => { state.isMoving = false; }, 100);
             }, { passive: true });
 
             window.addEventListener('pointerleave', () => {
+                state.targetX = window.innerWidth * 0.18;
+                state.targetY = window.innerHeight * 0.18;
                 state.isHovering = false;
-                stopLoop();
+                startLoop();
             }, { passive: true });
 
             window.addEventListener('scroll', () => {
-                state.scrollY = window.scrollY || window.pageYOffset;
                 if (window.innerWidth >= 1024) startLoop();
-                clearTimeout(state.scrollTimeout);
-                state.scrollTimeout = setTimeout(() => { if (!state.isMoving) stopLoop(); }, 500);
             }, { passive: true });
 
-            resize();
+            // Initial run
             if (window.innerWidth >= 1024) startLoop();
         });
     </script>
