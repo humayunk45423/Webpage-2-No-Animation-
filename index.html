@@ -85,9 +85,9 @@
             --green: #165844;
             --bg: var(--white);
             --bg2: #fcfcfc;
-            --surface: rgba(255, 255, 255, .88);
+            --surface: rgba(255, 255, 255, .98);
             --surface2: var(--white);
-            --nav: rgba(255, 255, 255, .72);
+            --nav: rgba(255, 255, 255, .98);
             --text: var(--black);
             --muted: rgba(5, 5, 5, .62);
             --line: rgba(5, 5, 5, .08);
@@ -113,9 +113,9 @@
             color-scheme: dark;
             --bg: #070707;
             --bg2: #0c0c0c;
-            --surface: rgba(22, 22, 22, .85);
-            --surface2: rgba(35, 35, 35, 0.9);
-            --nav: rgba(10, 10, 10, .85);
+            --surface: rgba(22, 22, 22, .98);
+            --surface2: rgba(35, 35, 35, 0.98);
+            --nav: rgba(10, 10, 10, .98);
             --text: #fdfdfd;
             --muted: rgba(240, 240, 240, .7);
             --line: rgba(255, 255, 255, .08);
@@ -255,7 +255,11 @@
             pointer-events: none;
             display: block;
             contain: strict;
+            /* God level performance forcing hardware rendering */
             will-change: transform;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transform: translateZ(0); 
         }
 
         @media (max-width: 1024px) {
@@ -296,8 +300,6 @@
             border: 1px solid var(--line);
             border-radius: 999px;
             background: var(--nav);
-            backdrop-filter: blur(28px) saturate(200%);
-            -webkit-backdrop-filter: blur(28px) saturate(200%);
             box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.15);
             transition: transform 0.4s var(--bezier), border-color 0.3s ease, background 0.3s ease;
             will-change: transform;
@@ -305,8 +307,6 @@
 
         @media (max-width: 1024px) {
             .nav-wrap {
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
                 background: var(--nav);
                 border-width: 1px;
             }
